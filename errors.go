@@ -1,9 +1,7 @@
-//go:build tinygo && (rp2040 || rp2350)
-
 package tinygo_pullup
 
 import (
-	tinygotypes "github.com/ralvarezdev/tinygo-types"
+	tinygoerrors "github.com/ralvarezdev/tinygo-errors"
 )
 
 const (
@@ -12,5 +10,5 @@ const (
 )
 
 const (
-	ErrorCodePullUpResistorNilHandler = tinygotypes.ErrorCode(iota + ErrorCodePullUpResistorStartNumber)
+	ErrorCodePullUpResistorNilHandler = tinygoerrors.ErrorCode(iota + ErrorCodePullUpResistorStartNumber)
 )

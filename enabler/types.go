@@ -6,7 +6,7 @@ import (
 	"machine"
 
 	tinygopullup "github.com/ralvarezdev/tinygo-pullup"
-	tinygotypes "github.com/ralvarezdev/tinygo-types"
+	tinygoerrors "github.com/ralvarezdev/tinygo-errors"
 )
 
 type (
@@ -27,14 +27,14 @@ type (
 //	An instance of DefaultHandler, or an error if the pull-up handler is nil
 func NewDefaultHandler(
 	pullUpHandler tinygopullup.Handler,
-) (*DefaultHandler, tinygotypes.ErrorCode) {
+) (*DefaultHandler, tinygoerrors.ErrorCode) {
 	if pullUpHandler == nil {
 		return nil, tinygopullup.ErrorCodePullUpResistorNilHandler
 	}
 
 	return &DefaultHandler{
 		pullUpHandler,
-	}, tinygotypes.ErrorCodeNil
+	}, tinygoerrors.ErrorCodeNil
 }
 
 // NewDefaultHandlerFromPin creates a new default debug handler with a pull-up handler created from the given pin.
