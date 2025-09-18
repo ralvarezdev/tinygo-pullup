@@ -1,5 +1,3 @@
-//go:build tinygo && (rp2040 || rp2350)
-
 package enabler
 
 import (
@@ -38,6 +36,14 @@ func NewDefaultHandler(
 }
 
 // NewDefaultHandlerFromPin creates a new default debug handler with a pull-up handler created from the given pin.
+//
+// Parameters:
+//
+//	pin: The pin to use for the pull-up handler
+//
+// Returns:
+//
+//	An instance of DefaultHandler
 func NewDefaultHandlerFromPin(pin machine.Pin) *DefaultHandler {
 	pullUpHandler := tinygopullup.NewDefaultHandler(pin)
 
@@ -47,11 +53,19 @@ func NewDefaultHandlerFromPin(pin machine.Pin) *DefaultHandler {
 }
 
 // IsEnabled checks if the debug mode is enabled.
+//
+// Returns:
+//
+// True if the debug mode is enabled, otherwise False
 func (d *DefaultHandler) IsEnabled() bool {
 	return d.IsShorted()
 }
 
 // IsDisabled checks if the debug mode is disabled.
+//
+// Returns:
+//
+// True if the debug mode is disabled, otherwise False
 func (d *DefaultHandler) IsDisabled() bool {
 	return d.IsOpen()
 }
